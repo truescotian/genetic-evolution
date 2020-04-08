@@ -7,7 +7,7 @@ import (
 )
 
 const (
-	iterations   int     = 50
+	iterations   int     = 5000
 	N            int     = 100
 	target       string  = "to be or not to be"
 	mutationRate float64 = 0.01
@@ -31,9 +31,11 @@ func main() {
 	found := false
 	for z := 0; z < iterations; z++ { // iterations
 		// Selection
+		fmt.Println("Generation: ", z)
 		for i := 0; i < len(population); i++ {
 			population[i].setFitness()
 			if population[i].getPhrase() == target {
+				fmt.Println("Generations: ", z, "Fitness: ", population[i].fitness)
 				found = true
 				break
 			}
